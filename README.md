@@ -1,12 +1,13 @@
 
-Microsoft Entra ID Sign-In Investigation & Credential Abuse Analysis
-Overview
+# Microsoft Entra ID Sign-In Investigation & Credential Abuse Analysis
+
+## Overview
 
 This lab focused on investigating authentication activity in Microsoft Entra ID to identify suspicious sign-in behavior and distinguish false positives from true security risks. The objective was to simulate realistic SOC scenarios involving repeated authentication failures, successful sign-ins following failures, and identity-based attack patterns such as brute force and password spraying.
 
 Rather than focusing on tenant configuration, this lab emphasized investigation, correlation, and decision-making consistent with Tier 1–2 SOC workflows.
 
-Lab Objectives
+## Lab Objectives
 
 Generate controlled failed and successful Entra ID sign-ins
 
@@ -20,7 +21,7 @@ Evaluate identity-based risk using IP address, location, and timing
 
 Classify alerts as false positives or true positives using SOC logic
 
-Environment
+## Environment
 
 Microsoft Entra ID (Free Tier)
 
@@ -32,13 +33,13 @@ Browser-based authentication attempts
 
 Internal and external sign-in telemetry
 
-Attack Simulation
+## Attack Simulation
 
 Authentication activity was intentionally generated using test Entra ID users. Failed sign-ins were performed using incorrect credentials in short time windows, followed by successful authentication attempts. Additional users were included to simulate both single-user brute force behavior and multi-user password spray patterns.
 
 All activity was conducted in a controlled lab environment without impacting production systems.
 
-Investigation Process
+## Investigation Process
 
 Sign-in logs were reviewed within Microsoft Entra ID to analyze authentication behavior. Events were filtered by user, status, and time range to identify clusters of failed attempts. Error codes and authentication details were examined to determine failure reasons and validate whether activity resulted from user error or potential credential abuse.
 
@@ -47,7 +48,7 @@ Sign-in logs were reviewed within Microsoft Entra ID to analyze authentication b
 
 Failed sign-ins were then correlated with subsequent successful authentication events to assess escalation risk. Source IP address, geographic location, and client application details were used to evaluate whether behavior was consistent or anomalous.
 
-Key Findings
+## Key Findings
 
 Low-frequency authentication failures were initially classified as false positives
 
@@ -63,13 +64,13 @@ Low-volume failures across multiple users aligned with password spraying
 
 Internal IP origin reduced immediate impact but still warranted monitoring
 
-SOC Analysis & Classification
+## SOC Analysis & Classification
 
 Initial authentication failures were treated as benign user behavior. As event frequency increased and failures were followed by a successful sign-in, the activity transitioned to a true positive requiring investigation. Although no immediate account compromise was confirmed, the pattern justified continued monitoring and identity security review.
 
 This lab demonstrated that not all true positives require incident response, but they do require context-aware judgment.
 
-Skills Demonstrated
+## Skills Demonstrated
 
 Identity-based threat investigation
 
@@ -83,7 +84,7 @@ Brute force vs password spray differentiation
 
 SOC-style alert triage and escalation reasoning
 
-Key Takeaways
+## Key Takeaways
 
 Authentication failures alone are not inherently malicious
 
@@ -95,6 +96,6 @@ Identity telemetry is a core component of modern SOC operations
 
 Context matters more than alert volume
 
-Notes
+## Notes
 
 All authentication events and IP addresses originated from an isolated lab environment. No real users or production systems were involved.
