@@ -1,10 +1,4 @@
 
-
-
-
-
-
-<img width="1900" height="955" alt="spray" src="https://github.com/user-attachments/assets/0b9ea52d-b274-42a4-8a84-7a88c67e83ee" />
 Microsoft Entra ID Sign-In Investigation & Credential Abuse Analysis
 Overview
 
